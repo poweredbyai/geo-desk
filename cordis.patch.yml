@@ -1,0 +1,4 @@
+# dsh-geo-desk bundle patch：同一个包提供 host 半片（/geo-desk 接口）和浏览器半片（侧栏面板）
+- insert:
+    - id: geo-desk
+      name: 'dsh-geo-desk'

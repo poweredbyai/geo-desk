@@ -1,0 +1,959 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>某潮汕菜品牌 · AI 搜索可见度报告</title>
+<style>
+  :root { --ink:#1B1A17; --ink2:#5C564C; --line:#DED7C9; --paper:#FBF9F4; --leaf:#0F5C4B; --clay:#B4593A; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:#EFEBE1; color:var(--ink); font-family:"Source Han Sans SC","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif; line-height:1.6; }
+  .page { max-width: 900px; margin: 0 auto; background: var(--paper); padding: 56px 64px 72px; }
+  header.top { border-bottom:2px solid var(--ink); padding-bottom:20px; margin-bottom:28px; }
+  .kicker { font-size:12px; letter-spacing:.22em; color:var(--ink2); text-transform:uppercase; }
+  h1 { font-size:30px; line-height:1.25; margin:10px 0 6px; letter-spacing:.01em; }
+  .sub { color:var(--ink2); font-size:13.5px; }
+  h2 { font-size:17px; margin:44px 0 12px; padding-left:10px; border-left:4px solid var(--leaf); }
+  p { margin:8px 0; }
+  .lead { font-size:15px; }
+  .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:18px 0 8px; }
+  .card { border:1px solid var(--line); padding:14px 14px 12px; background:#fff; }
+  .card-label { font-size:12px; color:var(--ink2); letter-spacing:.06em; }
+  .card-value { font-size:28px; font-weight:700; letter-spacing:-.01em; margin-top:2px; }
+  .unit { font-size:13px; font-weight:400; color:var(--ink2); margin-left:2px; }
+  .card-note { font-size:11.5px; color:var(--ink2); margin-top:4px; }
+  table { width:100%; border-collapse:collapse; font-size:13px; margin:8px 0 4px; }
+  th, td { text-align:left; padding:7px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-size:11.5px; letter-spacing:.08em; color:var(--ink2); font-weight:600; }
+  td.num, th.num { text-align:right; font-variant-numeric: tabular-nums; }
+  .mono { font-family:ui-monospace,Menlo,Consolas,monospace; font-size:11.5px; color:var(--ink2); }
+  .muted { color:var(--ink2); }
+  .strong { font-weight:700; }
+  .good { color:var(--leaf); font-weight:700; }
+  .bad { color:var(--clay); font-weight:700; }
+  .bar { height:9px; background:#EAE4D8; display:block; }
+  .bar span { display:block; height:100%; }
+  .gap { border:1px solid var(--line); background:#fff; padding:16px 18px; margin:14px 0; }
+  .gap-head { display:flex; gap:10px; align-items:baseline; }
+  .tag { font-size:11px; letter-spacing:.1em; background:var(--ink); color:#fff; padding:2px 7px; }
+  .gap-detail { color:var(--ink2); font-size:13px; }
+  .gap-items { margin:8px 0; padding-left:18px; font-size:13px; }
+  .gap-items li { margin:3px 0; }
+  .gap-items em { color:var(--ink2); font-style:normal; font-size:12px; margin-left:8px; }
+  .gap-action { font-size:13px; color:var(--leaf); font-weight:600; }
+  .callout { border-left:3px solid var(--clay); background:#F5EEE6; padding:12px 16px; font-size:13px; margin:16px 0; }
+  .foot { margin-top:52px; border-top:1px solid var(--line); padding-top:14px; font-size:11.5px; color:var(--ink2); }
+  h3.sub { font-size:13.5px; margin:24px 0 6px; color:var(--ink2); letter-spacing:.04em; }
+  .brief { border-top:1px dashed var(--line); margin-top:10px; padding-top:8px; font-size:12.5px; }
+  .brief-line { margin:3px 0; color:var(--ink2); }
+  .brief-line b { color:var(--ink); margin-right:8px; font-weight:600; }
+  .focus { border:1px solid var(--ink); background:#fff; padding:14px 18px; margin:14px 0; }
+  .focus-title { font-size:11.5px; letter-spacing:.14em; color:var(--ink2); margin-bottom:6px; }
+  ul.plain { margin:8px 0; padding-left:18px; font-size:13px; }
+  @media print { body { background:#fff } .page { max-width:none; padding:0 } h2 { break-after:avoid } tr { break-inside:avoid } }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="top">
+  <div class="kicker">GEO / AI 搜索可见度 · 首轮基线</div>
+  <h1>某潮汕菜品牌 在 AI 搜索里的可见度</h1>
+  <div class="sub">广州 · 潮汕菜 / 海鲜 · 生成于 2026/11/18 12:26:41 · 引擎：Proxy-Web（Tavily 检索 + 模型复述）</div>
+</header>
+
+<section>
+  <p class="lead">本轮在 60 个真实用户问题上采集了 118 个有效答案。
+  在<strong>没有点品牌名</strong>的 80 个答案里，品牌被主动提到的比例是
+  <strong>16.3%</strong>（95% 区间 9.7–25.8%），
+  这就是「AI 会不会想到你」的真实水平。点名提问的 38 个答案里提到率是 86.8%%，
+  那说明的是「AI 认不认识你」，两件事要分开看。
+  另有 13 个答案说错了事实，这部分比「没被提到」更急。</p>
+</section>
+
+<h2>一、四个核心指标</h2>
+<div class="grid">
+  <div class="card">
+    <div class="card-label">非品牌词提及率</div>
+    <div class="card-value">16.3<span class="unit">%</span></div>
+    <div class="card-note">区间 9.7–25.8% · n=80</div>
+  </div>
+  <div class="card">
+    <div class="card-label">非品牌词进前三</div>
+    <div class="card-value">15<span class="unit">%</span></div>
+    <div class="card-note">12 条进前三 · 13 条能识别位次</div>
+  </div>
+  <div class="card">
+    <div class="card-label">声量份额 SOV</div>
+    <div class="card-value">50.5<span class="unit">%</span></div>
+    <div class="card-note">本品牌 46 次 vs 同行 45 次</div>
+  </div>
+  <div class="card">
+    <div class="card-label">信息准确率</div>
+    <div class="card-value">89<span class="unit">%</span></div>
+    <div class="card-note">13 个答案有冲突</div>
+  </div>
+</div>
+<p class="muted" style="font-size:12.5px">口径：提及率 = 提到本品牌的答案 / 有效答案；推荐前三只统计能识别出列表结构的答案；准确率只查「说错」，不查「没说」。品牌验证类问题问句里点了名，提及率天然接近 100%，所以不进入上面的主指标。</p>
+
+<h2>二、分意图看，问题出在哪</h2>
+<table>
+  <thead><tr><th>意图</th><th class="num">问题数</th><th class="num">样本</th><th class="num">提及率</th><th class="num">95% 区间</th><th class="num">有提及</th></tr></thead>
+  <tbody><tr>
+      <td>品类发现</td>
+      <td class="num">12</td>
+      <td class="num">24</td>
+      <td class="num strong">20.8%</td>
+      <td class="num muted">9.2–40.5</td>
+      <td class="num">3/12</td>
+    </tr><tr>
+      <td>场景</td>
+      <td class="num">12</td>
+      <td class="num">23</td>
+      <td class="num strong">17.4%</td>
+      <td class="num muted">7–37.1</td>
+      <td class="num">3/12</td>
+    </tr><tr>
+      <td>对比 / 榜单</td>
+      <td class="num">12</td>
+      <td class="num">24</td>
+      <td class="num strong">70.8%</td>
+      <td class="num muted">50.8–85.1</td>
+      <td class="num">9/12</td>
+    </tr><tr>
+      <td>问题解决</td>
+      <td class="num">12</td>
+      <td class="num">23</td>
+      <td class="num strong">4.3%</td>
+      <td class="num muted">0.8–21</td>
+      <td class="num">1/12</td>
+    </tr><tr>
+      <td>品牌验证</td>
+      <td class="num">12</td>
+      <td class="num">24</td>
+      <td class="num strong">79.2%</td>
+      <td class="num muted">59.5–90.8</td>
+      <td class="num">11/12</td>
+    </tr></tbody>
+</table>
+
+<h2>三、谁在被推荐</h2>
+<table>
+  <thead><tr><th>同行</th><th class="num">出现次数</th><th>对比</th><th class="num">占样本比</th></tr></thead>
+  <tbody><tr>
+      <td>同行E</td>
+      <td class="num">7</td>
+      <td style="width:46%"><div class="bar"><span style="width:100%;background:#B4593A"></span></div></td>
+      <td class="num muted">5.9%</td>
+    </tr><tr>
+      <td>同行A</td>
+      <td class="num">7</td>
+      <td style="width:46%"><div class="bar"><span style="width:100%;background:#B4593A"></span></div></td>
+      <td class="num muted">5.9%</td>
+    </tr><tr>
+      <td>同行B</td>
+      <td class="num">7</td>
+      <td style="width:46%"><div class="bar"><span style="width:100%;background:#B4593A"></span></div></td>
+      <td class="num muted">5.9%</td>
+    </tr><tr>
+      <td>同行Q</td>
+      <td class="num">6</td>
+      <td style="width:46%"><div class="bar"><span style="width:86%;background:#B4593A"></span></div></td>
+      <td class="num muted">5.1%</td>
+    </tr><tr>
+      <td>同行N</td>
+      <td class="num">4</td>
+      <td style="width:46%"><div class="bar"><span style="width:57%;background:#B4593A"></span></div></td>
+      <td class="num muted">3.4%</td>
+    </tr><tr>
+      <td>同行J</td>
+      <td class="num">3</td>
+      <td style="width:46%"><div class="bar"><span style="width:43%;background:#B4593A"></span></div></td>
+      <td class="num muted">2.5%</td>
+    </tr><tr>
+      <td>同行K</td>
+      <td class="num">3</td>
+      <td style="width:46%"><div class="bar"><span style="width:43%;background:#B4593A"></span></div></td>
+      <td class="num muted">2.5%</td>
+    </tr><tr>
+      <td>同行L</td>
+      <td class="num">2</td>
+      <td style="width:46%"><div class="bar"><span style="width:29%;background:#B4593A"></span></div></td>
+      <td class="num muted">1.7%</td>
+    </tr><tr>
+      <td>同行C</td>
+      <td class="num">2</td>
+      <td style="width:46%"><div class="bar"><span style="width:29%;background:#B4593A"></span></div></td>
+      <td class="num muted">1.7%</td>
+    </tr><tr>
+      <td>同行D</td>
+      <td class="num">2</td>
+      <td style="width:46%"><div class="bar"><span style="width:29%;background:#B4593A"></span></div></td>
+      <td class="num muted">1.7%</td>
+    </tr></tbody>
+</table>
+
+<h2>四、AI 的引用偏好：它信谁、抄哪句</h2>
+<p class="muted" style="font-size:12.5px">这一节回答「AI 从哪学来的」。看懂了才知道内容该往哪放，而不是凭感觉发稿。</p>
+<h3 class="sub">4.1 信源类型结构</h3>
+<table>
+  <thead><tr><th>信源类型</th><th class="num">被引次数</th><th>占比</th><th class="num">占全部引用</th><th>可运营性</th></tr></thead>
+  <tbody><tr>
+      <td>媒体 / 聚合</td>
+      <td class="num">107</td>
+      <td style="width:36%"><div class="bar"><span style="width:100%;background:#0F5C4B"></span></div></td>
+      <td class="num muted">23.2%</td>
+      <td class="muted">易</td>
+    </tr><tr>
+      <td>其他</td>
+      <td class="num">83</td>
+      <td style="width:36%"><div class="bar"><span style="width:78%;background:#0F5C4B"></span></div></td>
+      <td class="num muted">18%</td>
+      <td class="muted">未知</td>
+    </tr><tr>
+      <td>榜单 / 指南</td>
+      <td class="num">70</td>
+      <td style="width:36%"><div class="bar"><span style="width:65%;background:#0F5C4B"></span></div></td>
+      <td class="num muted">15.2%</td>
+      <td class="muted">难</td>
+    </tr><tr>
+      <td>旅行 / 攻略</td>
+      <td class="num">63</td>
+      <td style="width:36%"><div class="bar"><span style="width:59%;background:#0F5C4B"></span></div></td>
+      <td class="num muted">13.7%</td>
+      <td class="muted">半</td>
+    </tr><tr>
+      <td>百科</td>
+      <td class="num">40</td>
+      <td style="width:36%"><div class="bar"><span style="width:37%;background:#0F5C4B"></span></div></td>
+      <td class="num muted">8.7%</td>
+      <td class="muted">半</td>
+    </tr><tr>
+      <td>视频</td>
+      <td class="num">39</td>
+      <td style="width:36%"><div class="bar"><span style="width:36%;background:#0F5C4B"></span></div></td>
+      <td class="num muted">8.5%</td>
+      <td class="muted">易</td>
+    </tr><tr>
+      <td>社交</td>
+      <td class="num">32</td>
+      <td style="width:36%"><div class="bar"><span style="width:30%;background:#0F5C4B"></span></div></td>
+      <td class="num muted">6.9%</td>
+      <td class="muted">难</td>
+    </tr><tr>
+      <td>社区 / 问答</td>
+      <td class="num">15</td>
+      <td style="width:36%"><div class="bar"><span style="width:14%;background:#0F5C4B"></span></div></td>
+      <td class="num muted">3.3%</td>
+      <td class="muted">易</td>
+    </tr><tr>
+      <td>地图 / POI</td>
+      <td class="num">12</td>
+      <td style="width:36%"><div class="bar"><span style="width:11%;background:#0F5C4B"></span></div></td>
+      <td class="num muted">2.6%</td>
+      <td class="muted">易</td>
+    </tr></tbody>
+</table>
+<p class="muted" style="font-size:12.5px">可运营性：易 = 自己能发（社区、视频、媒体供稿、地图 POI）；半 = 只能补信息不能主导（点评、百科）；难 = 靠长期口碑（榜单）。</p>
+
+<h3 class="sub">4.2 什么类型的问题，AI 更爱引什么</h3>
+<table>
+  <thead><tr><th>问题类型</th><th>主要引用来源（前三）</th></tr></thead>
+  <tbody><tr>
+      <td>对比 / 榜单</td>
+      <td>媒体 / 聚合 <span class="muted">19%</span> · 榜单 / 指南 <span class="muted">18%</span> · 旅行 / 攻略 <span class="muted">14%</span></td>
+    </tr><tr>
+      <td>品类发现</td>
+      <td>媒体 / 聚合 <span class="muted">36%</span> · 视频 <span class="muted">16%</span> · 旅行 / 攻略 <span class="muted">8%</span></td>
+    </tr><tr>
+      <td>问题解决</td>
+      <td>媒体 / 聚合 <span class="muted">28%</span> · 百科 <span class="muted">11%</span> · 榜单 / 指南 <span class="muted">8%</span></td>
+    </tr><tr>
+      <td>品牌验证</td>
+      <td>旅行 / 攻略 <span class="muted">28%</span> · 榜单 / 指南 <span class="muted">24%</span> · 百科 <span class="muted">15%</span></td>
+    </tr><tr>
+      <td>场景</td>
+      <td>媒体 / 聚合 <span class="muted">25%</span> · 榜单 / 指南 <span class="muted">20%</span> · 旅行 / 攻略 <span class="muted">18%</span></td>
+    </tr></tbody>
+</table>
+
+<h3 class="sub">4.3 AI 推荐一家店时，习惯带哪些信息</h3>
+<table>
+  <thead><tr><th>字段</th><th class="num">出现率</th><th>对比</th></tr></thead>
+  <tbody><tr>
+      <td>位置 / 商圈</td>
+      <td class="num">87%</td>
+      <td style="width:40%"><div class="bar"><span style="width:87%;background:#7A8B6F"></span></div></td>
+    </tr><tr>
+      <td>人均 / 价格</td>
+      <td class="num">75%</td>
+      <td style="width:40%"><div class="bar"><span style="width:75%;background:#7A8B6F"></span></div></td>
+    </tr><tr>
+      <td>招牌菜</td>
+      <td class="num">73%</td>
+      <td style="width:40%"><div class="bar"><span style="width:73%;background:#7A8B6F"></span></div></td>
+    </tr><tr>
+      <td>营业时间</td>
+      <td class="num">25%</td>
+      <td style="width:40%"><div class="bar"><span style="width:25%;background:#7A8B6F"></span></div></td>
+    </tr><tr>
+      <td>包间</td>
+      <td class="num">24%</td>
+      <td style="width:40%"><div class="bar"><span style="width:24%;background:#7A8B6F"></span></div></td>
+    </tr><tr>
+      <td>停车</td>
+      <td class="num">21%</td>
+      <td style="width:40%"><div class="bar"><span style="width:21%;background:#7A8B6F"></span></div></td>
+    </tr><tr>
+      <td>口碑 / 评分</td>
+      <td class="num">19%</td>
+      <td style="width:40%"><div class="bar"><span style="width:19%;background:#7A8B6F"></span></div></td>
+    </tr></tbody>
+</table>
+<div class="callout">出现率低 = AI 普遍答不上来 = 机会。<strong>包间、停车、营业时间</strong>这几项 AI 基本不给，
+但餐饮决策恰恰最看这几条——哪个品牌把这些信息写成可被摘录的句子，哪个品牌就先被引用。</div>
+
+<h3 class="sub">4.4 AI 实际抄走的是哪一句</h3>
+<p class="muted" style="font-size:12.5px">本轮共识别 744 个带引用标记的句子，
+平均 46 字；其中 43% 带数字、
+30% 带人均、19% 带排名或推荐语。
+它抄的是判断句，不是形容词。</p>
+<ul class="plain"><li>- 潮汕鱼头粥：打冷是店里主角，卤味、鱼饭、腌制类齐全，红鱼、那哥鱼鱼饭清淡味鲜，炒薄壳米、凉拌花甲、豆酱炒麻叶都是配粥好搭档，赤岗路152～158号 <em class="muted">— igz.gzwxb.gov.cn</em></li><li>- 珠江新城老牌潮州菜馆：国家五钻级酒家，冻龙虾、鹅肝、卤味拼盘、鱼饭、腌血蛤、麻叶一桌点齐，上菜快，人均300元左右 <em class="muted">— sohu.com</em></li><li>- 向里陈·不夜粥：珠江新城新开的潮汕菜，打冷点海湾养殖厚油巴浪鱼，蘸黄豆酱配粥，生腌三目蟹和沙虾也是招牌，人均200+ <em class="muted">— hk.trip.com</em></li><li>- 潮福餐馆：海珠雅乐街（鹭江站A出口），人气极高要排长队，蚝烙、金不换炒薄壳是招牌潮汕味 <em class="muted">— igz.gzwxb.gov.cn</em></li><li>- 六合茶居：天河临江大道506号，一线江景，冻大红蟹、普宁豆腐、白果芋泥都是潮汕经典，适合正经请客 <em class="muted">— static.nfnews.com</em></li><li>提醒一句：正宗打冷本来就是清粥小菜、简单原味的平民路线，别指望重油重盐那一套 。 <em class="muted">— igz.gzwxb.gov.cn</em></li></ul>
+
+<h3 class="sub">4.5 被引域名明细</h3>
+<table>
+  <thead><tr><th>域名</th><th class="num">被引次数</th><th>对比</th></tr></thead>
+  <tbody><tr>
+      <td>guide.michelin.com</td>
+      <td class="num">64</td>
+      <td style="width:46%"><div class="bar"><span style="width:100%;background:#0F5C4B"></span></div></td>
+    </tr><tr>
+      <td>youtube.com</td>
+      <td class="num">42</td>
+      <td style="width:46%"><div class="bar"><span style="width:66%;background:#0F5C4B"></span></div></td>
+    </tr><tr>
+      <td>sohu.com</td>
+      <td class="num">38</td>
+      <td style="width:46%"><div class="bar"><span style="width:59%;background:#0F5C4B"></span></div></td>
+    </tr><tr>
+      <td>baike.baidu.com</td>
+      <td class="num">30</td>
+      <td style="width:46%"><div class="bar"><span style="width:47%;background:#0F5C4B"></span></div></td>
+    </tr><tr>
+      <td>sina.cn</td>
+      <td class="num">26</td>
+      <td style="width:46%"><div class="bar"><span style="width:41%;background:#0F5C4B"></span></div></td>
+    </tr><tr>
+      <td>facebook.com</td>
+      <td class="num">24</td>
+      <td style="width:46%"><div class="bar"><span style="width:38%;background:#0F5C4B"></span></div></td>
+    </tr><tr>
+      <td>thepaper.cn</td>
+      <td class="num">22</td>
+      <td style="width:46%"><div class="bar"><span style="width:34%;background:#0F5C4B"></span></div></td>
+    </tr><tr>
+      <td>hk.trip.com</td>
+      <td class="num">21</td>
+      <td style="width:46%"><div class="bar"><span style="width:33%;background:#0F5C4B"></span></div></td>
+    </tr><tr>
+      <td>you.ctrip.com</td>
+      <td class="num">21</td>
+      <td style="width:46%"><div class="bar"><span style="width:33%;background:#0F5C4B"></span></div></td>
+    </tr><tr>
+      <td>zhuanlan.zhihu.com</td>
+      <td class="num">14</td>
+      <td style="width:46%"><div class="bar"><span style="width:22%;background:#0F5C4B"></span></div></td>
+    </tr></tbody>
+</table>
+<div class="callout">被引用的页面里，属于本品牌的比例是 <strong>36.4%</strong>。
+这个数字低，说明「AI 想推荐你，但没有材料可引」——这正是内容要补的位置。</div>
+
+<h2>五、诊断：三类缺口</h2>
+<div class="gap">
+      <div class="gap-head">
+        <span class="tag">信源缺口</span>
+        <strong>有 32 个问题完全没提到我们</strong>
+      </div>
+      <p class="gap-detail">这些问题的答案里，被引用的页面没有一篇是我们的。要么我们没内容，要么内容不在 AI 会引的地方。</p>
+      <ul class="gap-items">
+        <li><span class="mono">d02</span> 广州哪里能吃到正宗的潮汕打冷<em>igz.gzwxb.gov.cn、sohu.com</em></li><li><span class="mono">d03</span> 广州海鲜大排档推荐<em>sina.cn、sohu.com</em></li><li><span class="mono">d04</span> 广州吃海鲜去哪里比较好，要新鲜的<em>feng.ifeng.com、ycpai.ycwb.com</em></li><li><span class="mono">d05</span> 广州潮汕菜老字号有哪些<em>sohu.com、thepaper.cn</em></li><li><span class="mono">d06</span> 天河区有什么好吃的潮汕菜<em>bigfang.tw、static.nfnews.com</em></li><li><span class="mono">d08</span> 广州人均一百左右的海鲜餐厅推荐<em>facebook.com、youtube.com</em></li><li><span class="mono">d09</span> 广州哪里可以自己挑海鲜现做<em>zhuanlan.zhihu.com、openrice.com.cn</em></li><li><span class="mono">d11</span> 广州吃生腌去哪家比较放心<em>hk.trip.com、bilibili.com</em></li><li><span class="mono">d12</span> 广州潮汕卤水哪家好吃<em>sohu.com、thepaper.cn</em></li><li><span class="mono">s01</span> 广州家庭聚餐适合的潮汕菜餐厅，要能坐十几个人<em>youtube.com、guide.michelin.com</em></li><li><span class="mono">s02</span> 广州商务宴请吃潮汕菜，有包间<em>m.dianping.com、hk.trip.com</em></li><li><span class="mono">s04</span> 广州带父母吃饭，清淡一点的海鲜餐厅<em>m.dianping.com、youtube.com</em></li>
+      </ul>
+      <p class="gap-action">→ 按下面的信源清单位置占位：先在流量最大的 3 个站点各写 1 篇，14 天后复测。</p>
+    </div><div class="gap">
+      <div class="gap-head">
+        <span class="tag">强度不足</span>
+        <strong>有 7 个问题提了，但比例不到一半</strong>
+      </div>
+      <p class="gap-detail">说明有内容基础，但不够「确定」——AI 有时想到、有时想不到，通常是资料不够结构化或更新太慢。</p>
+      <ul class="gap-items">
+        <li><span class="mono">d01</span> 广州吃潮汕菜哪家好<em>50%</em></li><li><span class="mono">s08</span> 广州宴请客户，人均200以内，潮汕菜<em>50%</em></li><li><span class="mono">c04</span> 广州海鲜餐厅 大排档和高档酒楼怎么选<em>50%</em></li><li><span class="mono">q12</span> 潮汕菜适合商务宴请吗<em>50%</em></li><li><span class="mono">v07</span> 某潮汕菜品牌哪家店环境最好<em>50%</em></li><li><span class="mono">v09</span> 某潮汕菜品牌停车方便吗<em>50%</em></li><li><span class="mono">v11</span> 某潮汕菜品牌适合带小孩去吗<em>50%</em></li>
+      </ul>
+      <p class="gap-action">→ 把这几条问题对应的内容做成「结论 + 参数 + FAQ」结构，补齐人均、包间数、营业时间。</p>
+    </div><div class="gap">
+      <div class="gap-head">
+        <span class="tag">事实错误</span>
+        <strong>有 8 个问题的答案说错了事实</strong>
+      </div>
+      <p class="gap-detail">说错比不提更伤：客户看到错误的人均或菜系，会直接放弃。</p>
+      <ul class="gap-items">
+        <li><span class="mono">d05</span> 广州潮汕菜老字号有哪些<em>1 处</em></li><li><span class="mono">d08</span> 广州人均一百左右的海鲜餐厅推荐<em>2 处</em></li><li><span class="mono">s04</span> 广州带父母吃饭，清淡一点的海鲜餐厅<em>2 处</em></li><li><span class="mono">s05</span> 广州公司团建聚餐，20人左右，海鲜<em>2 处</em></li><li><span class="mono">c09</span> 广州人均100和人均300的海鲜餐厅差在哪<em>1 处</em></li><li><span class="mono">q03</span> 广州吃海鲜怎么点菜不踩坑<em>1 处</em></li><li><span class="mono">q05</span> 广州海鲜餐厅人均一般多少<em>2 处</em></li><li><span class="mono">v03</span> 某潮汕菜品牌在广州有几家店<em>2 处</em></li>
+      </ul>
+      <p class="gap-action">→ 先修事实卡 → 再同步点评/地图/百科/官网，让 AI 拿到的版本一致。</p>
+    </div>
+
+<h2>六、行动方案</h2>
+<p class="muted" style="font-size:12.5px">每条动作都带三样东西：为什么做（数据）、写什么（brief）、怎么算做成（验收）。先做 P0，再做 P1。</p>
+<div class="focus">
+  <div class="focus-title">本周先做这三件</div>
+  <ol class="plain"><li><strong>统一「潮汕菜」口径，止住 10 次菜系误判</strong></li><li><strong>场景：补 3 篇场景文 + 实拍图，打掉 9 个空白问题</strong></li><li><strong>问题解决：补 4 篇科普问答，打掉 11 个空白问题</strong></li></ol>
+</div>
+<div class="gap">
+      <div class="gap-head">
+        <span class="tag">P0</span>
+        <strong>统一「潮汕菜」口径，止住 10 次菜系误判</strong>
+        <span class="muted">0.5 人天</span>
+      </div>
+      <p class="gap-detail">8 个问题、共 13 条答案出现事实冲突（菜系 10、门店数 2、年份 1）。AI 会把不同来源的旧信息混在一起，只要有一处写成「粤菜」，它就会在粤菜的问题池里找别人。</p>
+      <ul class="gap-items"><li><span class="mono">d05</span> 广州潮汕菜老字号有哪些<em>1 处</em></li><li><span class="mono">d08</span> 广州人均一百左右的海鲜餐厅推荐<em>2 处</em></li><li><span class="mono">s04</span> 广州带父母吃饭，清淡一点的海鲜餐厅<em>2 处</em></li><li><span class="mono">s05</span> 广州公司团建聚餐，20人左右，海鲜<em>2 处</em></li><li><span class="mono">c09</span> 广州人均100和人均300的海鲜餐厅差在哪<em>1 处</em></li></ul>
+      <div class="brief">
+        <div class="brief-line"><b>写什么</b>把「潮汕菜（潮州菜）」写进每个渠道的第一句</div>
+        <div class="brief-line"><b>结构</b>首段第一句：品牌名 + 潮汕菜（潮州菜）+ 城市 + 创立年份；第二句：招牌（卤水、生腌、打冷、明档海鲜）；第三句：门店数与所在商圈；全文不要只写「粤菜」；如果必须提，写成「潮汕菜，属粤菜三大菜系之一」</div>
+        <div class="brief-line"><b>必须包含</b>潮汕菜 / 潮州菜、2012 年创立、广州 6 家门店、卤水拼盘、生腌、打冷</div>
+        <div class="brief-line"><b>发到哪</b>点评商家页 · 百科 · 地图 POI · 公众号简介 · 官网</div>
+      </div>
+      <p class="gap-action">验收：复测时菜系冲突 ≤ 1 条；品牌词问题里出现「潮汕」的比例 ≥ 90%（当前 89% 准确率）</p>
+    </div><div class="gap">
+      <div class="gap-head">
+        <span class="tag">P1</span>
+        <strong>场景：补 3 篇场景文 + 实拍图，打掉 9 个空白问题</strong>
+        <span class="muted">3 篇 × 0.5 人天</span>
+      </div>
+      <p class="gap-detail">9 个问题在采样里一次都没提到我们（该意图当前提及率 17.4%）。场景问题靠&quot;具体到能坐几个人、人均多少、有没有包间&quot;取胜</p>
+      <ul class="gap-items"><li><span class="mono">s01</span> 广州家庭聚餐适合的潮汕菜餐厅，要能坐十几个人</li><li><span class="mono">s02</span> 广州商务宴请吃潮汕菜，有包间</li><li><span class="mono">s04</span> 广州带父母吃饭，清淡一点的海鲜餐厅</li><li><span class="mono">s05</span> 广州公司团建聚餐，20人左右，海鲜</li><li><span class="mono">s06</span> 广州周末和朋友吃夜宵，潮汕打冷</li></ul>
+      <div class="brief">
+        <div class="brief-line"><b>写什么</b>广州家庭聚餐适合的潮汕菜餐厅，要能坐十几个人</div>
+        <div class="brief-line"><b>结构</b>开头 100 字内直接回答，不要铺垫；正文按「位置 / 商圈 / 人均 / 价格 / 招牌菜」分维度写，每个维度一句结论；至少给 5 个具体选项，我们排在第 2–3 位（第一位太硬，容易被判广告）；末尾放 5 条 FAQ，把用户的下一个问题也答掉</div>
+        <div class="brief-line"><b>必须包含</b>位置 / 商圈、人均 / 价格、招牌菜</div>
+        <div class="brief-line"><b>发到哪</b>小红书笔记 + 公众号</div>
+      </div>
+      <p class="gap-action">验收：14 天后该组 9 个问题的提及率 ≥ 30%（当前 17.4%）</p>
+    </div><div class="gap">
+      <div class="gap-head">
+        <span class="tag">P1</span>
+        <strong>问题解决：补 4 篇科普问答，打掉 11 个空白问题</strong>
+        <span class="muted">4 篇 × 0.5 人天</span>
+      </div>
+      <p class="gap-detail">11 个问题在采样里一次都没提到我们（该意图当前提及率 4.3%）。这类问题不涉及品牌，纯科普就能进答案，是性价比最高的一块</p>
+      <ul class="gap-items"><li><span class="mono">q01</span> 潮汕打冷是什么，广州哪里能吃到</li><li><span class="mono">q02</span> 潮汕生腌怎么吃才安全</li><li><span class="mono">q03</span> 广州吃海鲜怎么点菜不踩坑</li><li><span class="mono">q04</span> 潮汕卤水和广式卤水有什么区别</li><li><span class="mono">q05</span> 广州海鲜餐厅人均一般多少</li></ul>
+      <div class="brief">
+        <div class="brief-line"><b>写什么</b>潮汕打冷是什么，广州哪里能吃到</div>
+        <div class="brief-line"><b>结构</b>开头 100 字内直接回答，不要铺垫；正文按「位置 / 商圈 / 人均 / 价格 / 招牌菜」分维度写，每个维度一句结论；至少给 5 个具体选项，我们排在第 2–3 位（第一位太硬，容易被判广告）；末尾放 5 条 FAQ，把用户的下一个问题也答掉</div>
+        <div class="brief-line"><b>必须包含</b>位置 / 商圈、人均 / 价格、招牌菜</div>
+        <div class="brief-line"><b>发到哪</b>知乎回答 + 公众号</div>
+      </div>
+      <p class="gap-action">验收：14 天后该组 11 个问题的提及率 ≥ 30%（当前 4.3%）</p>
+    </div><div class="gap">
+      <div class="gap-head">
+        <span class="tag">P1</span>
+        <strong>品类发现：补 3 篇清单体长文，打掉 9 个空白问题</strong>
+        <span class="muted">3 篇 × 0.5 人天</span>
+      </div>
+      <p class="gap-detail">9 个问题在采样里一次都没提到我们（该意图当前提及率 20.8%）。「广州吃潮汕菜怎么选」这类问题，AI 需要一份能直接抄的名单</p>
+      <ul class="gap-items"><li><span class="mono">d02</span> 广州哪里能吃到正宗的潮汕打冷</li><li><span class="mono">d03</span> 广州海鲜大排档推荐</li><li><span class="mono">d04</span> 广州吃海鲜去哪里比较好，要新鲜的</li><li><span class="mono">d05</span> 广州潮汕菜老字号有哪些</li><li><span class="mono">d06</span> 天河区有什么好吃的潮汕菜</li></ul>
+      <div class="brief">
+        <div class="brief-line"><b>写什么</b>广州哪里能吃到正宗的潮汕打冷</div>
+        <div class="brief-line"><b>结构</b>开头 100 字内直接回答，不要铺垫；正文按「位置 / 商圈 / 人均 / 价格 / 招牌菜」分维度写，每个维度一句结论；至少给 5 个具体选项，我们排在第 2–3 位（第一位太硬，容易被判广告）；末尾放 5 条 FAQ，把用户的下一个问题也答掉</div>
+        <div class="brief-line"><b>必须包含</b>位置 / 商圈、人均 / 价格、招牌菜</div>
+        <div class="brief-line"><b>发到哪</b>媒体 / 聚合站（搜狐、新浪、澎湃类）</div>
+      </div>
+      <p class="gap-action">验收：14 天后该组 9 个问题的提及率 ≥ 30%（当前 20.8%）</p>
+    </div><div class="gap">
+      <div class="gap-head">
+        <span class="tag">P1</span>
+        <strong>在 sina.cn、zhuanlan.zhihu.com、feng.ifeng.com 上占位</strong>
+        <span class="muted">3 篇 × 0.5 人天</span>
+      </div>
+      <p class="gap-detail">这些站点被 AI 反复引用，但在引用它们的答案里我们出现的比例很低：sina.cn（19 次，我方 16%）；zhuanlan.zhihu.com（14 次，我方 0%）；feng.ifeng.com（4 次，我方 0%）。内容不缺，缺的是放在 AI 会看的地方。</p>
+      
+      <div class="brief">
+        <div class="brief-line"><b>写什么</b>优先 sina.cn</div>
+        <div class="brief-line"><b>结构</b>清单体优先：标题带「N 家 + 怎么选 + 人均」；正文里给可被直接抄走的句子：人均、包间数、招牌、停车；同一篇内容改写三个版本，分别投三类站，不要原文重复</div>
+        <div class="brief-line"><b>必须包含</b>位置 / 商圈、人均 / 价格、招牌菜</div>
+        <div class="brief-line"><b>发到哪</b>sina.cn（媒体 / 聚合，可运营性：易） / zhuanlan.zhihu.com（社区 / 问答，可运营性：易） / feng.ifeng.com（媒体 / 聚合，可运营性：易）</div>
+      </div>
+      <p class="gap-action">验收：这 3 个站点上「提到本品牌」的引用比例从当前水平提升到 40% 以上</p>
+    </div><div class="gap">
+      <div class="gap-head">
+        <span class="tag">P2</span>
+        <strong>把「可被抄走的句子」写进每篇内容</strong>
+        <span class="muted">一次性，写进内容规范</span>
+      </div>
+      <p class="gap-detail">AI 实际引用的 744 个句子里，43% 带数字、30% 带人均、19% 带排名或推荐语。它抄的是判断句，不是形容词。</p>
+      
+      <div class="brief">
+        <div class="brief-line"><b>写什么</b>一句话一个事实，数字优先</div>
+        <div class="brief-line"><b>结构</b>每个选项一行，格式：店名 + 一句判断（带数字）+ 适合谁；判断句长度控制在 40 字以内，主语明确；避免「环境优雅、菜品精致、服务周到」这类没有信息的句子</div>
+        <div class="brief-line"><b>必须包含</b>人均、包间数、招牌菜名、位置/地铁、适合场景</div>
+        <div class="brief-line"><b>发到哪</b>所有内容（写作规范）</div>
+      </div>
+      <p class="gap-action">验收：下一批复测里，含数字的被引句占比提升 10 个百分点</p>
+    </div><div class="gap">
+      <div class="gap-head">
+        <span class="tag">P2</span>
+        <strong>对比 / 榜单：补 1 篇对比评测，打掉 3 个空白问题</strong>
+        <span class="muted">1 篇 × 0.5 人天</span>
+      </div>
+      <p class="gap-detail">3 个问题在采样里一次都没提到我们（该意图当前提及率 70.8%）。对比类问题已经能看到我们，要做的是把&quot;第几位&quot;往前推</p>
+      <ul class="gap-items"><li><span class="mono">c06</span> 潮汕菜和粤菜有什么区别</li><li><span class="mono">c09</span> 广州人均100和人均300的海鲜餐厅差在哪</li><li><span class="mono">c12</span> 广州美食榜单推荐的潮汕菜是哪家</li></ul>
+      <div class="brief">
+        <div class="brief-line"><b>写什么</b>潮汕菜和粤菜有什么区别</div>
+        <div class="brief-line"><b>结构</b>开头 100 字内直接回答，不要铺垫；正文按「位置 / 商圈 / 人均 / 价格 / 招牌菜」分维度写，每个维度一句结论；至少给 5 个具体选项，我们排在第 2–3 位（第一位太硬，容易被判广告）；末尾放 5 条 FAQ，把用户的下一个问题也答掉</div>
+        <div class="brief-line"><b>必须包含</b>位置 / 商圈、人均 / 价格、招牌菜</div>
+        <div class="brief-line"><b>发到哪</b>知乎 + 行业媒体</div>
+      </div>
+      <p class="gap-action">验收：14 天后该组 3 个问题的提及率 ≥ 30%（当前 70.8%）</p>
+    </div>
+
+<h2>七、问题明细</h2>
+<table>
+  <thead><tr><th>编号</th><th>问题</th><th>意图</th><th class="num">提及率</th><th class="num">平均位次</th><th class="num">事实冲突</th></tr></thead>
+  <tbody><tr>
+      <td class="mono">d01</td>
+      <td>广州吃潮汕菜哪家好</td>
+      <td class="muted">品类发现</td>
+      <td class="num good">50%</td>
+      <td class="num">1</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">d02</td>
+      <td>广州哪里能吃到正宗的潮汕打冷</td>
+      <td class="muted">品类发现</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">d03</td>
+      <td>广州海鲜大排档推荐</td>
+      <td class="muted">品类发现</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">d04</td>
+      <td>广州吃海鲜去哪里比较好，要新鲜的</td>
+      <td class="muted">品类发现</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">d05</td>
+      <td>广州潮汕菜老字号有哪些</td>
+      <td class="muted">品类发现</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num bad">1</td>
+    </tr><tr>
+      <td class="mono">d06</td>
+      <td>天河区有什么好吃的潮汕菜</td>
+      <td class="muted">品类发现</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">d07</td>
+      <td>广州本地人常去的潮汕菜馆</td>
+      <td class="muted">品类发现</td>
+      <td class="num good">100%</td>
+      <td class="num">1</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">d08</td>
+      <td>广州人均一百左右的海鲜餐厅推荐</td>
+      <td class="muted">品类发现</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num bad">2</td>
+    </tr><tr>
+      <td class="mono">d09</td>
+      <td>广州哪里可以自己挑海鲜现做</td>
+      <td class="muted">品类发现</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">d10</td>
+      <td>广州有名的鱼仔店是哪家</td>
+      <td class="muted">品类发现</td>
+      <td class="num good">100%</td>
+      <td class="num">1</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">d11</td>
+      <td>广州吃生腌去哪家比较放心</td>
+      <td class="muted">品类发现</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">d12</td>
+      <td>广州潮汕卤水哪家好吃</td>
+      <td class="muted">品类发现</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">s01</td>
+      <td>广州家庭聚餐适合的潮汕菜餐厅，要能坐十几个人</td>
+      <td class="muted">场景</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">s02</td>
+      <td>广州商务宴请吃潮汕菜，有包间</td>
+      <td class="muted">场景</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">s03</td>
+      <td>广州请外地朋友吃潮汕菜，环境好一点的</td>
+      <td class="muted">场景</td>
+      <td class="num good">100%</td>
+      <td class="num">1</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">s04</td>
+      <td>广州带父母吃饭，清淡一点的海鲜餐厅</td>
+      <td class="muted">场景</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num bad">2</td>
+    </tr><tr>
+      <td class="mono">s05</td>
+      <td>广州公司团建聚餐，20人左右，海鲜</td>
+      <td class="muted">场景</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num bad">2</td>
+    </tr><tr>
+      <td class="mono">s06</td>
+      <td>广州周末和朋友吃夜宵，潮汕打冷</td>
+      <td class="muted">场景</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">s07</td>
+      <td>广州生日聚餐，有包间的潮汕菜</td>
+      <td class="muted">场景</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">s08</td>
+      <td>广州宴请客户，人均200以内，潮汕菜</td>
+      <td class="muted">场景</td>
+      <td class="num good">50%</td>
+      <td class="num">1</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">s09</td>
+      <td>广州天河区聚餐推荐，能停车的</td>
+      <td class="muted">场景</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">s10</td>
+      <td>广州带小孩吃海鲜，环境干净的</td>
+      <td class="muted">场景</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">s11</td>
+      <td>广州年底聚餐，潮汕菜，要提前订位</td>
+      <td class="muted">场景</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">s12</td>
+      <td>广州燕岭路附近请客吃饭推荐</td>
+      <td class="muted">场景</td>
+      <td class="num good">100%</td>
+      <td class="num">1</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">c01</td>
+      <td>某潮汕菜品牌和同行A哪个好</td>
+      <td class="muted">对比 / 榜单</td>
+      <td class="num good">100%</td>
+      <td class="num">1</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">c02</td>
+      <td>广州潮汕菜 某潮汕菜品牌 和 同行N 哪个更值得去</td>
+      <td class="muted">对比 / 榜单</td>
+      <td class="num good">100%</td>
+      <td class="num">1</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">c03</td>
+      <td>某潮汕菜品牌和同行J有什么区别</td>
+      <td class="muted">对比 / 榜单</td>
+      <td class="num good">100%</td>
+      <td class="num">1.5</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">c04</td>
+      <td>广州海鲜餐厅 大排档和高档酒楼怎么选</td>
+      <td class="muted">对比 / 榜单</td>
+      <td class="num good">50%</td>
+      <td class="num">6</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">c05</td>
+      <td>某潮汕菜品牌和同行B哪个更适合请客</td>
+      <td class="muted">对比 / 榜单</td>
+      <td class="num good">100%</td>
+      <td class="num">1.5</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">c06</td>
+      <td>潮汕菜和粤菜有什么区别</td>
+      <td class="muted">对比 / 榜单</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">c07</td>
+      <td>广州吃潮汕菜 某潮汕菜品牌和同行Q哪个好</td>
+      <td class="muted">对比 / 榜单</td>
+      <td class="num good">100%</td>
+      <td class="num">1</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">c08</td>
+      <td>某潮汕菜品牌和同行C哪个更适合家庭聚餐</td>
+      <td class="muted">对比 / 榜单</td>
+      <td class="num good">100%</td>
+      <td class="num">2</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">c09</td>
+      <td>广州人均100和人均300的海鲜餐厅差在哪</td>
+      <td class="muted">对比 / 榜单</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num bad">1</td>
+    </tr><tr>
+      <td class="mono">c10</td>
+      <td>某潮汕菜品牌和同行K哪个性价比高</td>
+      <td class="muted">对比 / 榜单</td>
+      <td class="num good">100%</td>
+      <td class="num">1</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">c11</td>
+      <td>广州潮汕菜排名前十</td>
+      <td class="muted">对比 / 榜单</td>
+      <td class="num good">100%</td>
+      <td class="num">1</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">c12</td>
+      <td>广州美食榜单推荐的潮汕菜是哪家</td>
+      <td class="muted">对比 / 榜单</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">q01</td>
+      <td>潮汕打冷是什么，广州哪里能吃到</td>
+      <td class="muted">问题解决</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">q02</td>
+      <td>潮汕生腌怎么吃才安全</td>
+      <td class="muted">问题解决</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">q03</td>
+      <td>广州吃海鲜怎么点菜不踩坑</td>
+      <td class="muted">问题解决</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num bad">1</td>
+    </tr><tr>
+      <td class="mono">q04</td>
+      <td>潮汕卤水和广式卤水有什么区别</td>
+      <td class="muted">问题解决</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">q05</td>
+      <td>广州海鲜餐厅人均一般多少</td>
+      <td class="muted">问题解决</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num bad">2</td>
+    </tr><tr>
+      <td class="mono">q06</td>
+      <td>潮汕菜有什么必点的招牌菜</td>
+      <td class="muted">问题解决</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">q07</td>
+      <td>广州吃潮汕菜要提前订位吗</td>
+      <td class="muted">问题解决</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">q08</td>
+      <td>潮汕打冷和潮汕牛肉火锅有什么区别</td>
+      <td class="muted">问题解决</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">q09</td>
+      <td>广州海鲜大排档怎么挑新鲜的</td>
+      <td class="muted">问题解决</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">q10</td>
+      <td>请客吃潮汕菜点什么菜有面子</td>
+      <td class="muted">问题解决</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">q11</td>
+      <td>广州潮汕菜馆有包间吗，最低消费多少</td>
+      <td class="muted">问题解决</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">q12</td>
+      <td>潮汕菜适合商务宴请吗</td>
+      <td class="muted">问题解决</td>
+      <td class="num good">50%</td>
+      <td class="num">2</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">v01</td>
+      <td>某潮汕菜品牌怎么样，好吃吗</td>
+      <td class="muted">品牌验证</td>
+      <td class="num good">100%</td>
+      <td class="num">1</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">v02</td>
+      <td>某潮汕菜品牌人均多少钱</td>
+      <td class="muted">品牌验证</td>
+      <td class="num good">100%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">v03</td>
+      <td>某潮汕菜品牌在广州有几家店</td>
+      <td class="muted">品牌验证</td>
+      <td class="num good">100%</td>
+      <td class="num">1</td>
+      <td class="num bad">2</td>
+    </tr><tr>
+      <td class="mono">v04</td>
+      <td>某潮汕菜品牌需要提前订位吗</td>
+      <td class="muted">品牌验证</td>
+      <td class="num good">100%</td>
+      <td class="num">1</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">v05</td>
+      <td>某潮汕菜品牌是粤菜还是潮汕菜</td>
+      <td class="muted">品牌验证</td>
+      <td class="num good">100%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">v06</td>
+      <td>某潮汕菜品牌上过美食榜单吗</td>
+      <td class="muted">品牌验证</td>
+      <td class="num good">100%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">v07</td>
+      <td>某潮汕菜品牌哪家店环境最好</td>
+      <td class="muted">品牌验证</td>
+      <td class="num good">50%</td>
+      <td class="num">1</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">v08</td>
+      <td>某潮汕菜品牌有包间吗</td>
+      <td class="muted">品牌验证</td>
+      <td class="num good">100%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">v09</td>
+      <td>某潮汕菜品牌停车方便吗</td>
+      <td class="muted">品牌验证</td>
+      <td class="num good">50%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">v10</td>
+      <td>某潮汕菜品牌是不是预制菜</td>
+      <td class="muted">品牌验证</td>
+      <td class="num good">100%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">v11</td>
+      <td>某潮汕菜品牌适合带小孩去吗</td>
+      <td class="muted">品牌验证</td>
+      <td class="num good">50%</td>
+      <td class="num">1</td>
+      <td class="num ">—</td>
+    </tr><tr>
+      <td class="mono">v12</td>
+      <td>某潮汕菜品牌和以前比味道变了吗</td>
+      <td class="muted">品牌验证</td>
+      <td class="num bad">0%</td>
+      <td class="num">—</td>
+      <td class="num ">—</td>
+    </tr></tbody>
+</table>
+
+<h2>八、口径与限制</h2>
+<ul class="plain">
+  <li><strong>引擎：Proxy-Web（Tavily 检索 + 模型复述）。</strong>演示引擎：检索前 8 条网页 → 模型按消费者视角组织答案。接真实引擎后指标与报告不变。</li>
+  <li>样本：60 个问题 × 2 次 = 120 条请求，有效 118 条。</li>
+  <li>所有比例都给 95% Wilson 区间；单条问题的样本量小，只看「有没有」不看具体点数。</li>
+  <li>AI 答案不稳定，同一问题多次结果会不同。本报告的所有数字都是「这一轮」的观测值，不是永久状态。</li>
+  <li>本报告不含流量归因：AI 答案不带 UTM，到店效果要用品牌词搜索、团购核销、到店问卷另行验证。</li>
+</ul>
+
+<div class="foot">
+  某潮汕菜品牌 · 首轮基线 · 2026/11/18 12:26:41<br>
+  由 GEO Desk 生成 · 数据源：Proxy-Web（Tavily 检索 + 模型复述） · 可在下一轮复测时对比同一批问题
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="GEO desk">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#0F2A43"/>
+  <circle cx="30" cy="30" r="14" fill="none" stroke="#7FD1FF" stroke-width="3.5" opacity="0.75"/>
+  <circle cx="30" cy="30" r="7" fill="none" stroke="#7FD1FF" stroke-width="3.5"/>
+  <circle cx="30" cy="30" r="2.6" fill="#F2F7FF"/>
+  <path d="M30 6v8M30 46v8M6 30h8M46 30h8" stroke="#7FD1FF" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+</svg>
